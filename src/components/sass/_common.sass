@@ -1,0 +1,123 @@
+html, body
+  font-family: $SFD
+  color: $text-color
+  line-height: 1.2
+  font-size: 18px
+
+.container
+  max-width: 960px
+  margin: 0 auto
+
+.main-btn
+  padding: 12px 30px
+  border: solid 1px $color-smokeExtraDark
+  display: inline-block
+  cursor: pointer
+  user-select: none
+  +transition()
+  &:hover
+    +main-box-shadow('mini')
+
+.btn-close
+  display: inline-block
+  width: 20px
+  height: 20px
+  cursor: pointer
+  background: url('../images/icons/x.svg') center/contain no-repeat
+
+.btn-edit
+  display: inline-block
+  width: 20px
+  height: 20px
+  cursor: pointer
+  background: url('../images/icons/edit.svg') center/contain no-repeat
+  margin-left: 16px
+  vertical-align: middle
+  +transition()
+  &:hover
+    background-image: url('../images/icons/edit-active.svg')
+
+.btn-remove
+  display: inline-block
+  background: url('../images/icons/trash-2.svg') center/contain no-repeat
+  width: 20px
+  height: 20px
+
+.btn-up
+  width: 50px
+  height: 50px
+  position: fixed
+  left: 20px
+  bottom: 40px
+  opacity: 0.8
+  background: #00b0ff url('../images/icons/arrow-up.svg') center/contain no-repeat
+  cursor: pointer
+
+.error
+  border: 1px solid red
+
+.text-red
+  color: $color-negative!important
+  font-weight: 500
+.text-green
+  color: $color-positive!important
+  font-weight: 500
+
+.main-title
+  font-size: 35px
+  font-weight: 500
+  margin-bottom: 60px
+  line-height: 1.1
+
+.main-title_small
+  font-size: 18px
+  margin-bottom: 32px
+  text-transform: uppercase
+  font-weight: 500
+
+.main-title_big
+  font-size: 40px
+  font-weight: 500
+
+.d-inline-block
+  display: inline-block !important
+
+.d-block
+  display: block !important
+
+.react-appear
+  opacity: 0.01
+
+.react-appear.react-appear-active
+  opacity: 1
+  +transition()
+  
+.react-enter
+  opacity: 0.01
+
+.react-enter.react-enter-active
+  opacity: 1
+  +transition()
+
+.react-leave
+  opacity: 1
+
+.react-leave.react-leave-active
+  opacity: 0.01
+  +transition()
+
+// UTILITIES
+
+@each $k, $i in (0: 0, 1: 8, 2: 16, 3: 30, 4: 60, 5: 90)
+  .m-#{$k}
+    margin: #{$i}px!important
+  @each $side, $acr in (top: t, bottom: b, left: l, right: r)
+    .m#{$acr}-#{$k}
+      margin-#{$side}: #{$i}px!important
+
+@each $k, $i in (0: 0, 1: 8, 2: 16, 3: 30, 4: 60, 5: 90)
+  .p-#{$k}
+    padding: #{$i}px!important
+  @each $side, $acr in (top: t, bottom: b, left: l, right: r)
+    .p#{$acr}-#{$k}
+      padding-#{$side}: #{$i}px!important

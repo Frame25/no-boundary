@@ -1,0 +1,199 @@
+// Стили делал на пофиг, тк без дизайнера делал на глаз))
+@import '../../components/sass/style.sass'
+
+.container
+  max-width: 960px
+  margin: 0 auto
+
+.main-container
+  padding: 40px 16px
+  .btn-add-post
+    margin-bottom: 40px
+
+.posts-wrapper
+  border: 1px solid lightgrey
+  padding: 20px
+
+  .post-card
+    padding: 16px
+    background: $color-smoke
+    margin-bottom: 20px
+    position: relative
+
+    &::after
+      content: ''
+      position: absolute
+      display: block
+      width: 100%
+      left: 0
+      bottom: -10px
+      height: 1px
+      background: $color-smokeExtraDark
+
+    .post__letter-count
+      font-size: 14px
+      color: $color-smokeExtraDark
+      display: inline-block
+      margin-left: 16px
+      &::before
+        content: '( '
+      &::after
+        content: ' )'
+    
+    .main-btn
+      max-height: 47px
+    
+    .btn-edit-post
+      &:hover
+        .btn-edit
+          background-image: url('../images/icons/edit-active.svg')
+  
+  .post__content
+    // height: 200px
+    // overflow: scroll
+    margin-bottom: 30px
+    position: relative
+    display: flex
+
+    .post__img
+      width: 200px
+      height: 200px
+      overflow: hidden
+
+      img
+        width: 100%
+
+    .post__text
+      width: calc(100% - 200px)
+      padding-left: 16px
+      margin-top: 0
+      height: 200px
+      overflow: scroll
+
+  .btn-remove-post
+    &::before
+      content: ''
+      display: inline-block
+      background: url('../images/icons/trash-2.svg') center/contain no-repeat
+      width: 20px
+      height: 20px
+      margin-right: 16px
+      vertical-align: top
+
+.post-modal
+  position: fixed
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  right: 0
+  
+  .modal__overlay
+    background: rgba(black, 0.9)
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+
+  .modal__content
+    background: white
+    position: absolute
+    width: 80%
+    height: 80%
+    left: 0
+    right: 0
+    top: 10%
+    margin: 0 auto
+    overflow: scroll
+    padding: 30px
+
+    input, textarea
+      width: 100%
+      padding: 10px
+      border: 1px solid $color-smokeExtraDark
+      user-select: all
+    
+    select
+      border: 1px solid $color-smokeExtraDark
+      width: 80%
+      height: 35px
+
+    .btn-close
+      position: absolute
+      right: 20px
+      top: 20px
+
+    .add-form
+      display: flex
+      flex-wrap: wrap
+
+    .title-block, .country-block, .tags-block, .text-block
+      margin-bottom: 30px
+      flex-grow: 1
+
+    .title-block
+      width: 50%
+      padding-right: 8px
+
+    .country-block
+      width: 50%
+      position: relative
+
+      .check-icon
+        display: inline-block
+        width: 20px
+        height: 20px
+        background: url('../images/icons/wrong.svg') center/contain no-repeat
+
+        &.ok
+          background: url('../images/icons/check.svg') center/contain no-repeat
+
+      .country-block__add
+        position: absolute
+        left: 0
+        bottom: -30px
+        transform: translateY(100%)
+        padding: 20px
+        width: 100%
+        background: white
+        border: 1px solid $color-smokeDark
+        +main-box-shadow()
+
+      .btn-add-country
+        margin-top: 10px
+
+    .tags-block
+      width: 50%
+      padding-right: 8px
+    .image-block
+      width: 50%
+    .text-block
+      width: 100%
+
+@media screen and (max-width: 767px)
+  .posts-wrapper
+    padding: 0
+    .post-card
+      .main-btn
+        width: 50%
+        font-size: 13px
+        vertical-align: middle
+        padding: 10px
+        text-align: center
+    .post__title
+      line-height: 1
+    .post__content
+      flex-wrap: wrap
+      .post__img
+        margin: 0 auto
+      .post__text
+        width: 100%
+        padding-left: 0
+
+  .post-modal
+    .modal__content
+      .title-block, .country-block, .tags-block, .text-block, .image-block
+        width: 100%
+        padding-right: 0
+        margin-bottom: 30px

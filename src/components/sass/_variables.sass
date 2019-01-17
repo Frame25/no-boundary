@@ -1,0 +1,97 @@
+/***********************************************
+ *SETTINGS
+ ***********************************************
+
+$SF: 'SF', Helvetica, Arial, sans-serif
+$SFD: 'SFD', Helvetica, Arial, sans-serif
+
+/***** Define grid width ****
+$grid-width: 1200px
+$grid-width-smscreen: 1024px
+$grid-width-tablet: 768px
+
+/***********************************************
+ *Colors
+ ***********************************************
+
+/***** Smoke set ****
+$color-smoke: #F0F2F4
+$color-smokeDark: #D8D9DB
+$color-smokeExtraDark: #C0C2C3
+
+/***** Snow set ****
+$color-snow: #FFFFFF
+$color-snowDark: #F7F7F7
+$color-snowExtraDark: #E5E5E5
+
+/***** Black set ****
+$color-black: #1A2730
+$color-slate: #26343E
+$color-steel: #33424D
+$color-silver: #6A8092
+
+/***** Grey set ****
+$color-grey: #AAAAAA
+$color-greyDark: #555555
+
+/***** Positive set ****
+$color-positive: #29B765
+$color-positiveDark: #219358
+
+/***** Warning set ****
+$color-warning: #FFC82C
+$color-warningDark: #F8B700
+
+/***** Negative set ****
+$color-negative: #E74C3C
+$color-negativeDark: #B93D30
+
+/***** Information set ****
+$color-info: #3498DB
+
+//83c1da
+$color-infoDark: #206FA4
+
+$color-green: #b1e522
+$text-color: #141313
+$color-brownDark: #231d1d
+
+/***********************************************
+  MIXINS
+/***********************************************
+
+=dots-bg()
+  background: url('../images/bg/dot.png')
+  background-size: 13px
+
+=transition($property: all, $duration: .4s, $function: ease, $delay: 0s)
+  $prop: $property
+  $dur: $duration
+  $func: $function
+  $del: $delay
+  @for $i from 1 to length($property)
+    @if length($dur) == 1
+      $dur: $dur, $duration
+    @if length($func) == 1
+      $func: $func, $function
+    @if length($func) == 1
+      $del: $del, $delay
+  transition-property: $prop
+  transition-duration: $dur
+  transition-timing-function: $func
+  transition-delay: $del
+
+=main-box-shadow($mini: '')
+  @if $mini == 'mini'
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1)
+  @else
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.15)
+
+=appear()
+  animation: onload-appear .4s ease forwards
+
+@keyframes onload-appear
+  from
+    opacity: 0
+  to
+    opacity: 1
