@@ -45,9 +45,13 @@ const plugins = {
     extractCss,
     new CopyWebpackPlugin([
       {
-        from: path.join(__dirname, 'static/**/*'),
-        to: 'dist'
-      }
+        from: 'static/images',
+        to: 'images'
+      },
+      {
+        from: 'static/css',
+        to: 'css'
+      },
     ])
   ]
 }
